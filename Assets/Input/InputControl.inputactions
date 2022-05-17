@@ -1,0 +1,54 @@
+{
+    "name": "InputControl",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "c9915716-1260-4606-9b6d-d41a905a07de",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "68b7666d-5401-4f53-8f9c-2aa7a355e2ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MultiTouch",
+                    "type": "Button",
+                    "id": "02fade32-bcd4-4610-bdb9-e4b0d2d4bb32",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7b8faca4-6196-4d93-8146-5036b5f0745b",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07f60b3a-1359-4ab7-a9da-f0a807be5960",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MultiTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

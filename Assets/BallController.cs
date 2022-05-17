@@ -5,13 +5,15 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     [Header("Setting Variable")]
+    [SerializeField] private float moveSpeed = 3.0f;
     private Rigidbody2D rb;
+    private Vector3 currentVelocity;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
-        rb.velocity = Vector2.one.normalized * 10f;
+        rb.velocity = Vector2.one.normalized * moveSpeed;
     }
 
     void FixedUpdate()
@@ -21,15 +23,21 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col){
         BounceControl(col);
-    }
-    private void BallMoveControl(){
-        // movement
+        if(col.transform.tag == "Brick"){
+            col.gameObject.SetActive(false);
+        }
+
     }
 
-    private void BounceControl(Collision2D col){
-              // bounce
-        float speed = rb.velocity.magnitude;
-        Vector3 direction = Vector2.Reflect(rb.velocity.normalized,col.contacts[0].normal);
-        rb.velocity = direction * Mathf.Max(speed,0f);
+    private void BallMoveControl(){
+        currentVelocity = rb.velocity;
     }
+ 
+    private void BounceControl(Collision2D col){
+        // bounce
+        Vector3 reflectDir = Vector3.Reflect(currentVelocity,col.contacts[0].normal);
+        //reflectDir = new Vector3(Mathf.Clamp(reflectDir.x,-0.85f,0.85f),Mathf.Clamp(reflectDir.y,-0.85f,0.85f),reflectDir.z);
+        rb.velocity = reflectDir;
+    }
+
 }

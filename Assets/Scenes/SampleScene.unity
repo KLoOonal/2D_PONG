@@ -123,6 +123,118 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &115926488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115926489}
+  - component: {fileID: 115926491}
+  - component: {fileID: 115926490}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115926489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115926488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1623765979}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &115926490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115926488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca4687fa092d824e8ed878ebeb1afe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &115926491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115926488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f15b0b17cca7e2e44a5d75f55a382cd9, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115926490}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnTryTouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 68b7666d-5401-4f53-8f9c-2aa7a355e2ea
+    m_ActionName: Touch/Touch[/Device Simulator Touchscreen/touch0/press,/Device
+      Simulator Touchscreen/touch1/press,/Device Simulator Touchscreen/touch2/press,/Device
+      Simulator Touchscreen/touch3/press,/Device Simulator Touchscreen/touch4/press,/Device
+      Simulator Touchscreen/touch5/press,/Device Simulator Touchscreen/touch6/press,/Device
+      Simulator Touchscreen/touch7/press,/Device Simulator Touchscreen/touch8/press,/Device
+      Simulator Touchscreen/touch9/press]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115926490}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnTryMultiTap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 02fade32-bcd4-4610-bdb9-e4b0d2d4bb32
+    m_ActionName: Touch/MultiTouch[/Device Simulator Touchscreen/press]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Touch
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &255293743
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,102 +245,17 @@ GameObject:
   m_Component:
   - component: {fileID: 255293748}
   - component: {fileID: 255293747}
-  - component: {fileID: 255293746}
-  - component: {fileID: 255293745}
-  - component: {fileID: 255293744}
+  - component: {fileID: 255293751}
+  - component: {fileID: 255293750}
+  - component: {fileID: 255293749}
+  - component: {fileID: 255293752}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!66 &255293744
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255293743}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 255293746}
-    m_ColliderPaths:
-    - - X: -23966232
-        Y: 47374276
-      - X: -23966232
-        Y: -47374276
-      - X: 23966232
-        Y: -47374276
-      - X: 23966232
-        Y: 47374276
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 2.396594, y: -4.7374277}
-      - {x: 2.396594, y: 4.7374277}
-      - {x: -2.3966231, y: 4.7373986}
-      - {x: -2.396594, y: -4.7374277}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
---- !u!50 &255293745
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255293743}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!60 &255293746
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255293743}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.5, y: 0.5}
 --- !u!212 &255293747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -289,13 +316,115 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255293743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0527, y: 0.2997, z: 0.43}
-  m_LocalScale: {x: 4.7932463, y: 9.474855, z: 1}
+  m_LocalPosition: {x: -0.0732, y: -0.0188, z: 0}
+  m_LocalScale: {x: 4.784524, y: 10.157048, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!66 &255293749
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255293743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0.03
+  m_ColliderPaths:
+  - m_Collider: {fileID: 255293751}
+    m_ColliderPaths:
+    - - X: -23922620
+        Y: 50785240
+      - X: -23922620
+        Y: -50785240
+      - X: 23922620
+        Y: -50785240
+      - X: 23922620
+        Y: 50785240
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 2.392262, y: -4.9379354}
+      - {x: 2.392262, y: 4.9379354}
+      - {x: 2.2516732, y: 5.078524}
+      - {x: -2.2516732, y: 5.078524}
+      - {x: -2.392262, y: 4.9379354}
+      - {x: -2.392262, y: -4.9379354}
+      - {x: -2.2516732, y: -5.078524}
+      - {x: 2.2516732, y: -5.078524}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.24
+--- !u!50 &255293750
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255293743}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &255293751
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255293743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.5, y: 0.5}
+--- !u!114 &255293752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255293743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a64c07759b0354dad6087f1cc738c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &356145756
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +438,7 @@ GameObject:
   - component: {fileID: 356145759}
   m_Layer: 0
   m_Name: Brick (45)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,7 +549,7 @@ GameObject:
   - component: {fileID: 418187211}
   m_Layer: 0
   m_Name: Brick (28)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,7 +660,7 @@ GameObject:
   - component: {fileID: 464592424}
   m_Layer: 0
   m_Name: Brick (25)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,7 +771,7 @@ GameObject:
   - component: {fileID: 473705129}
   m_Layer: 0
   m_Name: Brick (38)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,7 +882,7 @@ GameObject:
   - component: {fileID: 581572719}
   m_Layer: 0
   m_Name: Brick (41)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,7 +993,7 @@ GameObject:
   - component: {fileID: 611628582}
   m_Layer: 0
   m_Name: Brick (36)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,7 +1104,7 @@ GameObject:
   - component: {fileID: 658583191}
   m_Layer: 0
   m_Name: Brick (17)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1169,7 +1298,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 698386575}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 409d8057a36a5b548914b7d21d25f026, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1190,13 +1319,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 409d8057a36a5b548914b7d21d25f026, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &698386580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22bc72e2ac45f1a43bfaa6bd99de4f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &742252320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1352,7 @@ GameObject:
   - component: {fileID: 742252323}
   m_Layer: 0
   m_Name: Brick (29)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1333,7 +1463,7 @@ GameObject:
   - component: {fileID: 796840502}
   m_Layer: 0
   m_Name: Brick (19)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1444,7 +1574,7 @@ GameObject:
   - component: {fileID: 818891467}
   m_Layer: 0
   m_Name: Brick (40)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,7 +1685,7 @@ GameObject:
   - component: {fileID: 845123083}
   m_Layer: 0
   m_Name: Brick (34)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1666,7 +1796,7 @@ GameObject:
   - component: {fileID: 846616273}
   m_Layer: 0
   m_Name: Brick (16)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1777,7 +1907,7 @@ GameObject:
   - component: {fileID: 864243211}
   m_Layer: 0
   m_Name: Brick (7)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1888,7 +2018,7 @@ GameObject:
   - component: {fileID: 897861397}
   m_Layer: 0
   m_Name: Brick (23)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1999,7 +2129,7 @@ GameObject:
   - component: {fileID: 914259015}
   m_Layer: 0
   m_Name: Brick (11)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2110,7 +2240,7 @@ GameObject:
   - component: {fileID: 945139455}
   m_Layer: 0
   m_Name: Brick (20)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2339,7 +2469,7 @@ GameObject:
   - component: {fileID: 984784865}
   m_Layer: 0
   m_Name: Brick (30)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2450,7 +2580,7 @@ GameObject:
   - component: {fileID: 1131688321}
   m_Layer: 0
   m_Name: Brick (6)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2561,7 +2691,7 @@ GameObject:
   - component: {fileID: 1169852017}
   m_Layer: 0
   m_Name: Brick (9)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2672,7 +2802,7 @@ GameObject:
   - component: {fileID: 1207337898}
   m_Layer: 0
   m_Name: Brick (21)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2770,6 +2900,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1287397779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287397780}
+  m_Layer: 0
+  m_Name: ScalerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287397780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287397779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1623765979}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289822047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2894,7 +3055,7 @@ GameObject:
   - component: {fileID: 1338762320}
   m_Layer: 0
   m_Name: Brick (35)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3005,7 +3166,7 @@ GameObject:
   - component: {fileID: 1382827659}
   m_Layer: 0
   m_Name: Brick (5)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3116,7 +3277,7 @@ GameObject:
   - component: {fileID: 1405551221}
   m_Layer: 0
   m_Name: Brick (39)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3227,7 +3388,7 @@ GameObject:
   - component: {fileID: 1415148550}
   m_Layer: 0
   m_Name: Brick (18)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3338,7 +3499,7 @@ GameObject:
   - component: {fileID: 1420164899}
   m_Layer: 0
   m_Name: Brick (22)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3449,7 +3610,7 @@ GameObject:
   - component: {fileID: 1505169135}
   m_Layer: 0
   m_Name: Brick (26)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3560,7 +3721,7 @@ GameObject:
   - component: {fileID: 1518155234}
   m_Layer: 0
   m_Name: Brick (12)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3671,7 +3832,7 @@ GameObject:
   - component: {fileID: 1522391139}
   m_Layer: 0
   m_Name: Brick (13)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3782,7 +3943,7 @@ GameObject:
   - component: {fileID: 1539773833}
   m_Layer: 0
   m_Name: Brick (43)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3909,54 +4070,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1876360141}
-  - {fileID: 1638139863}
+  - {fileID: 115926489}
+  - {fileID: 1287397780}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1638139862
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1638139863}
-  - component: {fileID: 1638139864}
-  m_Layer: 0
-  m_Name: DeviceData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1638139863
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638139862}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1623765979}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1638139864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638139862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2bff4e62bb4ed948991ebf11bd5d598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1680476630
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,7 +4088,7 @@ GameObject:
   - component: {fileID: 1680476633}
   m_Layer: 0
   m_Name: Brick (32)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4081,7 +4199,7 @@ GameObject:
   - component: {fileID: 1703233085}
   m_Layer: 0
   m_Name: Brick (42)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4192,7 +4310,7 @@ GameObject:
   - component: {fileID: 1710128873}
   m_Layer: 0
   m_Name: Brick (33)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4376,7 +4494,7 @@ GameObject:
   - component: {fileID: 1799415292}
   m_Layer: 0
   m_Name: Brick (15)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4487,7 +4605,7 @@ GameObject:
   - component: {fileID: 1804769759}
   m_Layer: 0
   m_Name: Brick (24)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4598,7 +4716,7 @@ GameObject:
   - component: {fileID: 1856452664}
   m_Layer: 0
   m_Name: Brick (37)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4706,7 +4824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876360141}
   m_Layer: 0
-  m_Name: GameplayController
+  m_Name: GameplayManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4740,7 +4858,7 @@ GameObject:
   - component: {fileID: 1880279241}
   m_Layer: 0
   m_Name: Brick (4)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4851,7 +4969,7 @@ GameObject:
   - component: {fileID: 1903181563}
   m_Layer: 0
   m_Name: Brick (10)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4962,7 +5080,7 @@ GameObject:
   - component: {fileID: 1948679681}
   m_Layer: 0
   m_Name: Brick (14)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5073,7 +5191,7 @@ GameObject:
   - component: {fileID: 1951625365}
   m_Layer: 0
   m_Name: Brick (31)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5184,7 +5302,7 @@ GameObject:
   - component: {fileID: 1994035406}
   m_Layer: 0
   m_Name: Brick (8)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5295,7 +5413,7 @@ GameObject:
   - component: {fileID: 2010457002}
   m_Layer: 0
   m_Name: Brick (27)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5406,7 +5524,7 @@ GameObject:
   - component: {fileID: 2138943811}
   m_Layer: 0
   m_Name: Brick (44)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
