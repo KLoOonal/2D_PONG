@@ -7,6 +7,8 @@ TagManager:
   - Brick
   - Input
   - Boundary
+  - Ball
+  - Platform
   layers:
   - Default
   - TransparentFX
