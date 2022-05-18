@@ -8,7 +8,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float moveSpeed = 3.0f;
     private Rigidbody2D rb;
     private Vector3 currentVelocity;
-    void Awake(){
+    void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
     }
     void Start()
@@ -21,22 +22,32 @@ public class BallController : MonoBehaviour
         BallMoveControl();
     }
 
-    void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionEnter2D(Collision2D col)
+    {
         BounceControl(col);
-        if(col.transform.tag == "Brick"){
-            col.gameObject.SetActive(false);
-        }
-
     }
 
-    private void BallMoveControl(){
+    private void BallMoveControl()
+    {
         currentVelocity = rb.velocity;
     }
- 
-    private void BounceControl(Collision2D col){
+
+    private void BounceControl(Collision2D col)
+    {
+        // feedback
+        if (col.transform.tag == "Brick")
+        {
+            BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
+            brick.OnHitAction();
+            if (brick.GetBrickType() != BaseBrick.BrickType.passthough)
+            {
+                return;
+            }   
+        }
+
         // bounce
-        Vector3 reflectDir = Vector3.Reflect(currentVelocity,col.contacts[0].normal);
-        //reflectDir = new Vector3(Mathf.Clamp(reflectDir.x,-0.85f,0.85f),Mathf.Clamp(reflectDir.y,-0.85f,0.85f),reflectDir.z);
+        Vector3 reflectDir = Vector3.Reflect(currentVelocity, col.contacts[0].normal);
+        print(currentVelocity+" , "+ reflectDir);
         rb.velocity = reflectDir;
     }
 

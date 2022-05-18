@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassBrick : MonoBehaviour
+public class PassBrick : BaseBrick
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void OnHitAction()
     {
-        
+        ShowEffect();   
+        Despawn(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void ShowEffect(){
+        // show effect when hit or destroy;
     }
 }

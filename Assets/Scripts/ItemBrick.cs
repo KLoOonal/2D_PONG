@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBrick : MonoBehaviour
+public class ItemBrick : BaseBrick
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void OnHitAction()
     {
-        
+        SpawnItem();
+        Despawn();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void SpawnItem(){
+        // spawn item when hit
+    }
+
+    private void ShowEffect(){
+        // show Effect when hit or destroy;
     }
 }

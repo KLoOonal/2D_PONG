@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallBrick : MonoBehaviour
+public class BallBrick : BaseBrick
 {
-    // Start is called before the first frame update
-    void Start()
+  
+    public override void OnHitAction()
     {
-        
+        ShowEffect();
+        SpawnBall();
+        Despawn();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void SpawnBall(){
+        // spawn new ball at this position;
+    }
+
+     private void ShowEffect(){
+        // show Effect when hit or destroy;
     }
 }

@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalBrick : MonoBehaviour
+public class NormalBrick : BaseBrick
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]private int life = 0;
+
+    void Awake(){
+        // set up color base on life;
+    }
+    public override void OnHitAction()
     {
-        
+        CheckLife();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void CheckLife(){
+        life -= 1;
+        ShowEffect();
+        if(life <= 0){
+            Despawn();
+        }
+    }
+
+    private void ShowEffect(){
+        // show effect base on life , destroy or just damage.
     }
 }

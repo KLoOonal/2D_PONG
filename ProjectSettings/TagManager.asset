@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Brick
   - Input
-  - BrickPass
-  - BrickInvinc
+  - Boundary
   layers:
   - Default
   - TransparentFX

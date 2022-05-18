@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseBrick : MonoBehaviour
 {
-    private enum BrickType{
+    public enum BrickType{
         normal,
         passthough,
         ball,
@@ -15,8 +15,16 @@ public class BaseBrick : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private BrickType type;
 
-    public virtual void OnHit(){
+    public virtual void OnHitAction(){
 
+    }
+
+    public BrickType GetBrickType(){
+        return type;
+    }
+
+    protected void Despawn(){
+        this.gameObject.SetActive(false);
     }
 
     
