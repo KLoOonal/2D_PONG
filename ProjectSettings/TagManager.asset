@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - Ball
   - Platform
+  - DeadZone
   layers:
   - Default
   - TransparentFX

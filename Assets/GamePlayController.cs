@@ -8,7 +8,8 @@ public class GamePlayController : MonoBehaviour
         initiate,
         standby,
         playing,
-        over
+        over,
+        end
     }
 
     [SerializeField] private gameState state;
@@ -40,29 +41,58 @@ public class GamePlayController : MonoBehaviour
     }
 
     private void PlayerLoseLife(){
-        // check if still has life left
-        // if not get to game over state
+        playerLife -= 1;
+        if(playerLife <= 0){
+            SetGameOver();
+        }else{
+            SetStandby();
+        }
     }
 
     private void SetInitiate(){
         playerLife = 3;
+        SetStandby();
     }
 
+    private void SetStandby(){
+        state = gameState.standby;
+        platform.PlatformReset();
+    }
     private void SetPlaying(){
-
+        state = gameState.playing;
+        platform.DeployBall();
     }
 
     private void SetEnd(){
-
+        state = gameState.end;
+        // game end show success menu + interact for next scene.
     }
 
+     private void SetGameOver(){
+         // game over  , show restart menu 
+         state = gameState.over;
+     }
+
     private void CheckGameOver(){
-        // in game state
-        // check if ball and life
+        if(state != gameState.playing){
+           return; 
+        }
+
+        // check ball number
+        if(GameObject.FindGameObjectsWithTag("Ball") == null || GameObject.FindGameObjectsWithTag("Ball").Length <= 0){
+            PlayerLoseLife();
+        }
+        
     }
 
     private void CheckGameComplete(){
         // in game state
         // check amount of brick
+    }
+
+    public void InputActionStartGame(){
+        if(state == gameState.standby){
+            SetPlaying();
+        }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public enum BallState{
+    public enum BallState
+    {
         standby,
         playing
     }
@@ -13,12 +14,14 @@ public class BallController : MonoBehaviour
     [SerializeField] private BallState state;
     [SerializeField] private float moveSpeed = 3.0f;
     private Rigidbody2D rb;
+    private PlatformController platform;
     private Vector3 currentVelocity;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        platform = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformController>();
     }
-   
+
     void FixedUpdate()
     {
         BallMoveControl();
@@ -31,8 +34,12 @@ public class BallController : MonoBehaviour
 
     private void BallMoveControl()
     {
-
-        currentVelocity = rb.velocity;
+        if(state  == BallState.standby){
+            this.transform.position = platform.GetPlatformSpawnPoint().position;
+        }else if(state  == BallState.playing){
+            currentVelocity = rb.velocity;
+        }
+        
     }
 
     private void BounceControl(Collision2D col)
@@ -45,35 +52,53 @@ public class BallController : MonoBehaviour
             if (brick.GetBrickType() != BaseBrick.BrickType.passthough)
             {
                 return;
-            }   
+            }
+        }
+
+        // deadzone
+        if(col.transform.tag == "DeadZone"){
+            Despawn();
         }
 
         // bounce
         Vector3 reflectDir = Vector3.Reflect(currentVelocity, col.contacts[0].normal);
-        print(currentVelocity+" , "+ reflectDir);
+        print(currentVelocity + " , " + reflectDir);
         rb.velocity = reflectDir;
     }
 
-    private void SetBallStartMove(){
+    private void SetBallStartMove()
+    {
         rb.velocity = Vector2.one.normalized * moveSpeed;
     }
 
-    private void Despawn(){
-        // handle when it gone down
+    private void SetBallStandBy(){
+        // track position
+        this.gameObject.SetActive(true);
+        rb.velocity = Vector2.zero;
+    }
+
+    private void Despawn()
+    {
+        this.gameObject.SetActive(false);
     }
     //-------------
-    public void SetBallState(BallState state){
+    public void SetBallState(BallState state)
+    {
         this.state = state;
-        switch(state){
+        switch (state)
+        {
             case BallState.standby:
-            break;
+                SetBallStandBy();
+                break;
 
             case BallState.playing:
-            break;
+                SetBallStartMove();
+                break;
         }
     }
 
-    public BallState GetBallState(){
+    public BallState GetBallState()
+    {
         return state;
     }
 

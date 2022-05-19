@@ -91,7 +91,14 @@ public class ScreenBaseSprite : MonoBehaviour
 
     private void ResizeSpriteFillHorizontal()
     {
+        float width = GetScreenBound().x;
+        float height = GetScreenBound().y;
 
+        float worldScreenHeight = Camera.main.orthographicSize * 2.0f;
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+
+        transform.localScale = new Vector2(worldScreenWidth / width, transform.localScale.y);
+        
     }
 
     private void ResizeSpriteFillVertical()
