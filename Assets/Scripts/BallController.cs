@@ -32,6 +32,13 @@ public class BallController : MonoBehaviour
         BounceControl(col);
     }
 
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.transform.tag == "PassThrough"){
+            BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
+            brick.OnHitAction();
+        }
+    }
+
     private void BallMoveControl()
     {
         if(state  == BallState.standby){
@@ -49,20 +56,20 @@ public class BallController : MonoBehaviour
         {
             BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
             brick.OnHitAction();
-            if (brick.GetBrickType() != BaseBrick.BrickType.passthough)
-            {
-                return;
-            }
         }
+        Bounce(col);
 
         // deadzone
         if(col.transform.tag == "DeadZone"){
             Despawn();
         }
 
+        
+    }
+
+    private void Bounce(Collision2D col){
         // bounce
-        Vector3 reflectDir = Vector3.Reflect(currentVelocity, col.contacts[0].normal);
-        print(currentVelocity + " , " + reflectDir);
+        Vector3 reflectDir = Vector3.Reflect(currentVelocity, col.contacts[0].normal );
         rb.velocity = reflectDir;
     }
 

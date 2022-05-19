@@ -10,6 +10,7 @@ TagManager:
   - Ball
   - Platform
   - DeadZone
+  - PassThrough
   layers:
   - Default
   - TransparentFX

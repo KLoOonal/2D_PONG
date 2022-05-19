@@ -13,11 +13,13 @@ public class GamePlayController : MonoBehaviour
     }
 
     [SerializeField] private gameState state;
+    [SerializeField] BrickController brickset;
 
     private int playerLife = 3;
     private BallController defaultBall;
     private PlatformController platform;
     private Transform ballSpawnPoint;
+
 
     void Awake(){
         defaultBall = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallController>();
@@ -52,6 +54,7 @@ public class GamePlayController : MonoBehaviour
     private void SetInitiate(){
         playerLife = 3;
         SetStandby();
+        brickset.ResetBrick();
     }
 
     private void SetStandby(){
@@ -65,12 +68,14 @@ public class GamePlayController : MonoBehaviour
 
     private void SetEnd(){
         state = gameState.end;
+        platform.PlatformReset();
         // game end show success menu + interact for next scene.
     }
 
      private void SetGameOver(){
          // game over  , show restart menu 
          state = gameState.over;
+         platform.PlatformReset();
      }
 
     private void CheckGameOver(){
@@ -85,14 +90,27 @@ public class GamePlayController : MonoBehaviour
         
     }
 
-    private void CheckGameComplete(){
-        // in game state
-        // check amount of brick
+    private void CheckGameComplete(){      
+        if(state != gameState.playing){
+           return; 
+        }
+
+        if(GameObject.FindGameObjectsWithTag("Brick") == null || GameObject.FindGameObjectsWithTag("Brick").Length <= 0){
+            SetEnd();
+        }
     }
 
-    public void InputActionStartGame(){
+    public void InputActionDoubleTap(){
         if(state == gameState.standby){
             SetPlaying();
+        }
+    }
+
+    public void InputActionOneTap(){
+        if(state == gameState.end){
+            // move to next scene
+        }else if(state == gameState.over){
+            SetInitiate();
         }
     }
 }

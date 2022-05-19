@@ -15,15 +15,31 @@ public class UIController : MonoBehaviour
         GameOverGroup.alpha = 0;
         GameCompleteGroup.alpha = 0;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ShowStateUI();
+    }
+
+    void ShowStateUI(){
+        if(gm.GetGameState() == GamePlayController.gameState.standby){
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,1f,2*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+        }else if(gm.GetGameState() == GamePlayController.gameState.over){
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,1f,2*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+        }
+        else if(gm.GetGameState() == GamePlayController.gameState.end){
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,1f,2*Time.deltaTime);
+        }else{
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+        }
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class NormalBrick : BaseBrick
 {
-    [SerializeField]private int life = 0;
-
+    [SerializeField]private int life = 1;
+    [SerializeField]private Color[] lifeColor;
+    private SpriteRenderer sr;
     void Awake(){
-        // set up color base on life;
+        sr = GetComponent<SpriteRenderer>();
+        sr.color = lifeColor[lifeColor.Length-1];
     }
     public override void OnHitAction()
     {
@@ -16,6 +18,7 @@ public class NormalBrick : BaseBrick
 
     private void CheckLife(){
         life -= 1;
+        sr.color = lifeColor[life > 0 ? life-1 : 0];
         ShowEffect();
         if(life <= 0){
             Despawn();
