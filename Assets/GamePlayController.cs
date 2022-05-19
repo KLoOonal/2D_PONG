@@ -13,7 +13,9 @@ public class GamePlayController : MonoBehaviour
     }
 
     [SerializeField] private gameState state;
-    [SerializeField] BrickController brickset;
+    [SerializeField] GameObject brickSpawnPoint;
+    [SerializeField] BrickController[] brickset;
+    private BrickController currentBickSet;
 
     private int playerLife = 3;
     private BallController defaultBall;
@@ -28,7 +30,7 @@ public class GamePlayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetInitiate();
+        InitiateGame();
     }
 
     // Update is called once per frame
@@ -51,10 +53,18 @@ public class GamePlayController : MonoBehaviour
         }
     }
 
-    private void SetInitiate(){
+    private void InitiateGame(){
         playerLife = 3;
         SetStandby();
-        brickset.ResetBrick();
+        int randomSet = Random.Range(0,brickset.Length);
+        currentBickSet = Instantiate(brickset[randomSet],brickSpawnPoint.transform.position,Quaternion.identity,brickSpawnPoint.transform);
+        currentBickSet.ResetBrick();
+    }
+
+    private void RestartGame(){
+        playerLife = 3;
+        SetStandby();
+        currentBickSet.ResetBrick();
     }
 
     private void SetStandby(){
@@ -69,7 +79,6 @@ public class GamePlayController : MonoBehaviour
     private void SetEnd(){
         state = gameState.end;
         platform.PlatformReset();
-        // game end show success menu + interact for next scene.
     }
 
      private void SetGameOver(){
@@ -108,9 +117,8 @@ public class GamePlayController : MonoBehaviour
 
     public void InputActionOneTap(){
         if(state == gameState.end){
-            // move to next scene
         }else if(state == gameState.over){
-            SetInitiate();
+            RestartGame();
         }
     }
 }
