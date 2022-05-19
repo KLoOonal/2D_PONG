@@ -6,11 +6,16 @@ public class PlatformController : MonoBehaviour
 {
     private InputController input;
     private Transform ballSpawnPoint;
+    private Transform defaultSize;
     [SerializeField]private BallController mainBall;
     void Awake(){
         //cache
         input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputController>();
         ballSpawnPoint = transform.GetChild(0);
+    }
+
+    void Start(){
+        defaultSize = this.transform;
     }
 
     void Update()
@@ -40,6 +45,26 @@ public class PlatformController : MonoBehaviour
         if(mainBall != null){
             mainBall.SetBallState(BallController.BallState.standby);
         }
+    }
+
+    public void PlatformSizeModify(bool isIncrease){
+
+    }
+
+    public void BallSizeModify(bool isIncrease){
+
+    }
+
+    public void BallSpeedModify(bool isIncrease){
+
+    }
+
+    public void PlatformFull(){
+
+    }
+
+    public void PlatformSpawnBall(){
+
     }
 
 }

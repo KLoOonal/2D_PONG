@@ -19,13 +19,13 @@ public class NormalBrick : BaseBrick
     private void CheckLife(){
         life -= 1;
         sr.color = lifeColor[life > 0 ? life-1 : 0];
-        ShowEffect();
         if(life <= 0){
+            ShowEffect();
             Despawn();
         }
     }
 
     private void ShowEffect(){
-        // show effect base on life , destroy or just damage.
+        ParticleController.Instance.ShowEffectBrickDestroy(this.transform.position);
     }
 }

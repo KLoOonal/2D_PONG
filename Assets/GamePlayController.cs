@@ -104,7 +104,8 @@ public class GamePlayController : MonoBehaviour
            return; 
         }
 
-        if(GameObject.FindGameObjectsWithTag("Brick") == null || GameObject.FindGameObjectsWithTag("Brick").Length <= 0){
+        if((GameObject.FindGameObjectsWithTag("Brick") == null || GameObject.FindGameObjectsWithTag("Brick").Length <= 0) &&
+           (GameObject.FindGameObjectsWithTag("PassThrough") == null || GameObject.FindGameObjectsWithTag("PassThrough").Length <= 0)){
             SetEnd();
         }
     }

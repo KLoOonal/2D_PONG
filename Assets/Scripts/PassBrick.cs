@@ -12,6 +12,6 @@ public class PassBrick : BaseBrick
     }
 
     private void ShowEffect(){
-        // show effect when hit or destroy;
+        ParticleController.Instance.ShowEffectBrickDestroy(this.transform.position);
     }
 }

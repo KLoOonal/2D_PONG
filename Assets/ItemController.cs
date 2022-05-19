@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    private enum ItemType{
+    public enum ItemType{
         ball_speed_increase,
         ball_speed_decrease,
         ball_size_increase,
@@ -16,10 +16,11 @@ public class ItemController : MonoBehaviour
     }
 
     [Header("Setting")]
-    [SerializeField] private ItemType itemType;
-    [SerializeField] private ParticleSystem itemParticle;
+    [SerializeField]private ItemType itemType;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private bool isActivated = false;
+    private PlatformController platform;
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -31,14 +32,24 @@ public class ItemController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
+        if(isActivated){
+            return;
+        }     
         if(col.transform.tag == "Platform"){
+            platform = col.transform.GetComponent<PlatformController>();
             ActivatePower();
             Despawn();
+            isActivated = true;
         }
         if(col.transform.tag == "DeadZone"){
             Despawn();
-        }
-        
+            isActivated = true;
+        } 
+    }
+
+    public void SetItemType(int randomType){
+        // set type by int value
+        // change image base on type
     }
 
     private void ActivatePower(){
@@ -67,7 +78,7 @@ public class ItemController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         sr.color = Color.clear;
-        if(isDeadZone) itemParticle.Emit(30);
+        ParticleController.Instance.ShowEffectItemCollect(this.transform.position);
         Destroy(this.gameObject,5.0f);
     }
 }

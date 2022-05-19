@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class ItemBrick : BaseBrick
 {
-
+    [Header("Setting")]
+    [SerializeField] private GameObject itemObject;
     public override void OnHitAction()
     {
         SpawnItem();
+        ShowEffect();
         Despawn();
     }
 
     private void SpawnItem(){
-        // spawn item when hit
+        GameObject item = Instantiate(itemObject,this.transform.position,Quaternion.identity);
+        int randType = Random.Range(0,8);
+        item.GetComponent<ItemController>().SetItemType(randType);
     }
 
     private void ShowEffect(){
-        // show Effect when hit or destroy;
+        ParticleController.Instance.ShowEffectItemBrickDestroy(this.transform.position);
     }
 }
