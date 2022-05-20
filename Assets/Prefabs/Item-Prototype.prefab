@@ -649,6 +649,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  itemTypeImage:
+  - {fileID: 8295979045443641812}
+  - {fileID: 382192553152843441}
+  - {fileID: 7019382143951899158}
+  - {fileID: 1066869667833605893}
+  - {fileID: 861143584797695498}
+  - {fileID: 4525449071723774906}
+  - {fileID: 3650130440790880884}
+  - {fileID: 1618802722780408472}
 --- !u!1 &7019382143951899158
 GameObject:
   m_ObjectHideFlags: 0

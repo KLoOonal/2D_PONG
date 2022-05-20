@@ -15,17 +15,17 @@ public class GamePlayController : MonoBehaviour
     [SerializeField] private gameState state;
     [SerializeField] GameObject brickSpawnPoint;
     [SerializeField] BrickController[] brickset;
+
     private BrickController currentBickSet;
 
+   
+
     private int playerLife = 3;
-    private BallController defaultBall;
-    private PlatformController platform;
+    [SerializeField]private BallController defaultBall;
+    [SerializeField]private PlatformController platform;
     private Transform ballSpawnPoint;
-
-
     void Awake(){
-        defaultBall = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallController>();
-        platform = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformController>();
+
     }
     // Start is called before the first frame update
     void Start()
@@ -78,6 +78,15 @@ public class GamePlayController : MonoBehaviour
 
     private void SetEnd(){
         state = gameState.end;
+        if(GameObject.FindGameObjectsWithTag("Ball") != null || GameObject.FindGameObjectsWithTag("Ball").Length > 0){
+            GameObject[] ballObj = GameObject.FindGameObjectsWithTag("Ball");
+           foreach(GameObject ball in ballObj){
+               if(!ball.GetComponent<BallController>().GetBallType()){
+                   Destroy(ball);
+               }
+           }
+        }
+
         platform.PlatformReset();
     }
 

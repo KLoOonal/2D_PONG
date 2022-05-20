@@ -19,6 +19,7 @@ public class ItemController : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private ItemType itemType;
     [SerializeField] private GameObject[] itemTypeImage;
+    private int itemTypeIndex;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private bool isActivated = false;
@@ -58,8 +59,11 @@ public class ItemController : MonoBehaviour
 
     public void SetItemType(int randomType)
     {
+        randomType = 1;
         SetItemTypeFromIndex(randomType);
         itemTypeImage[randomType].SetActive(true);
+        itemTypeIndex = randomType;
+ 
     }
 
     private void ActivatePower()
@@ -111,10 +115,10 @@ public class ItemController : MonoBehaviour
                 itemType = ItemType.ball_size_decrease;
                 break;
             case 4:
-                itemType = ItemType.platform_size_decrease;
+                itemType = ItemType.platform_size_increase;          
                 break;
             case 5:
-                itemType = ItemType.platform_size_increase;
+                itemType = ItemType.platform_size_decrease;    
                 break;
             case 6:
                 itemType = ItemType.platform_size_full;
@@ -133,6 +137,7 @@ public class ItemController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         sr.color = Color.clear;
+        itemTypeImage[itemTypeIndex].SetActive(false);
         ParticleController.Instance.ShowEffectItemCollect(this.transform.position);
         Destroy(this.gameObject, 5.0f);
     }

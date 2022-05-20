@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [Header("Element")]
+    [SerializeField] private float fadeTime = 4f;
     [SerializeField] private CanvasGroup initiateGroup;
     [SerializeField] private CanvasGroup GameOverGroup;
     [SerializeField] private CanvasGroup GameCompleteGroup;
@@ -24,22 +25,22 @@ public class UIController : MonoBehaviour
 
     void ShowStateUI(){
         if(gm.GetGameState() == GamePlayController.gameState.standby){
-            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,1f,2*Time.deltaTime);
-            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
-            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,1f,fadeTime*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,fadeTime*Time.deltaTime);
         }else if(gm.GetGameState() == GamePlayController.gameState.over){
-            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
-            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,1f,2*Time.deltaTime);
-            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,1f,fadeTime*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,fadeTime*Time.deltaTime);
         }
         else if(gm.GetGameState() == GamePlayController.gameState.end){
-            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
-            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
-            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,1f,2*Time.deltaTime);
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,1f,fadeTime*Time.deltaTime);
         }else{
-            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,2*Time.deltaTime);
-            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,2*Time.deltaTime);
-            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,2*Time.deltaTime);
+            initiateGroup.alpha = Mathf.Lerp(initiateGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameOverGroup.alpha = Mathf.Lerp(GameOverGroup.alpha,0f,fadeTime*Time.deltaTime);
+            GameCompleteGroup.alpha = Mathf.Lerp(GameCompleteGroup.alpha,0f,fadeTime*Time.deltaTime);
         }
     }
 }
