@@ -25,12 +25,13 @@ public class BallController : MonoBehaviour
     private float maxSpeed = 5.0f;
     private float minSpeed = 2.0f;
 
-    [SerializeField] private PlatformController platform;
+    private PlatformController platform;
     private Rigidbody2D rb;
     private Vector3 currentVelocity;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        platform = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformController>();
     }
 
     void FixedUpdate()
@@ -152,14 +153,24 @@ public class BallController : MonoBehaviour
     public void SetSizeIncrease()
     {
         if(sizeState != BallSizeState.large){
-            // increase
+            this.transform.localScale = new Vector2(this.transform.localScale.x*2,this.transform.localScale.y*2);
+            if(sizeState == BallSizeState.small){
+                sizeState = BallSizeState.normal;
+            }else {
+                sizeState = BallSizeState.large; 
+            }
         }
     }
 
      public void SetSizeDecrease()
     {
         if(sizeState != BallSizeState.small){
-            // decrease
+            this.transform.localScale = new Vector2(this.transform.localScale.x/2,this.transform.localScale.y/2);
+            if(sizeState == BallSizeState.large){
+                sizeState = BallSizeState.normal;
+            }else {
+                sizeState = BallSizeState.small; 
+            }
         }
     }
 
