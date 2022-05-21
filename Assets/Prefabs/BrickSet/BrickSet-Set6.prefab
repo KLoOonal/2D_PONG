@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1348095818866981071}
+  - component: {fileID: 5079339134593165356}
+  - component: {fileID: -3229204899122599859}
   m_Layer: 0
   m_Name: BrickSet-Set6
   m_TagString: Untagged
@@ -93,6 +95,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5079339134593165356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732970088898867236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a64c07759b0354dad6087f1cc738c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultScreenSize: {x: 1080, y: 2340}
+  type: 0
+--- !u!114 &-3229204899122599859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732970088898867236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fbdec5839190d4599c36dea4213af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &87355558296342188
 PrefabInstance:
   m_ObjectHideFlags: 0

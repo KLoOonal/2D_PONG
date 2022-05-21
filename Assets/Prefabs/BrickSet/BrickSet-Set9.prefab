@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultScreenSize: {x: 1080, y: 2340}
-  type: 4
+  type: 0
 --- !u!114 &2948645087668555697
 MonoBehaviour:
   m_ObjectHideFlags: 0

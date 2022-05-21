@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ItemController : MonoBehaviour
 {
     public enum ItemType
@@ -24,7 +25,6 @@ public class ItemController : MonoBehaviour
     private SpriteRenderer sr;
     private bool isActivated = false;
     private PlatformController platform;
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,7 +59,7 @@ public class ItemController : MonoBehaviour
 
     public void SetItemType(int randomType)
     {
-        //randomType = 2; for testing item only
+        //randomType = 7; //for testing item only
         SetItemTypeFromIndex(randomType);
         itemTypeImage[randomType].SetActive(true);
         itemTypeIndex = randomType;

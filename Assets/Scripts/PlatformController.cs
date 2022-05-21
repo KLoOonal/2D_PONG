@@ -15,12 +15,14 @@ public class PlatformController : MonoBehaviour
     private float spawnTime;
     private bool isLetBallSpawn = false;
     private bool itemSizeActivate = false;
+    private Rigidbody2D rb;
 
     private int ballSpawnCount;
     void Awake(){
         //cache
         input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputController>();
         ballSpawnPoint = transform.GetChild(0);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start(){
@@ -28,7 +30,7 @@ public class PlatformController : MonoBehaviour
         currentSize = defaultSize;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         CheckUpdatePosition();
         BallSpawner();
@@ -40,6 +42,7 @@ public class PlatformController : MonoBehaviour
         }
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(input.GetTouchPosition());
         transform.position = new Vector2(worldPos.x,transform.position.y);
+        //rb.MovePosition(new Vector2(worldPos.x,transform.localPosition.y) * new Vector2(10,0)*Time.deltaTime);
     }
 
     public Transform GetPlatformSpawnPoint(){
@@ -132,7 +135,6 @@ public class PlatformController : MonoBehaviour
         if(isLetBallSpawn ){
             return;
         }
-
         isLetBallSpawn = true;
     }
 
@@ -150,7 +152,7 @@ public class PlatformController : MonoBehaviour
       spawnTime += 1f * Time.deltaTime;
         if(spawnTime > spawnDelay){
             spawnTime = 0;
-            GameObject ballObj = Instantiate(ballPrefabs,ballSpawnPoint.transform.position,Quaternion.Euler(0f,0f,-35f)); 
+            GameObject ballObj = Instantiate(ballPrefabs,ballSpawnPoint.transform.position,Quaternion.identity); 
             BallController ballCtr = ballObj.GetComponent<BallController>();
             ballCtr.SetBallState(BallController.BallState.playing);
             ballSpawnCount += 1;
