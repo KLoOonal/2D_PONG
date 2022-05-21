@@ -171,6 +171,7 @@ public class GamePlayController : MonoBehaviour
     {
         if (state == gameState.end)
         {
+            InitiateGame();
         }
         else if (state == gameState.over)
         {

@@ -83,7 +83,7 @@ public class ScreenBaseSprite : MonoBehaviour
             }
             Vector2 newScalePosition = GetScaleByRatio();
             transform.localScale = Vector2.Scale(transform.localScale, newScale);
-            transform.position = Vector2.Scale(transform.position, newScalePosition);
+            transform.position = new Vector2(newScalePosition.x, -transform.localScale.x);
         }
 
 

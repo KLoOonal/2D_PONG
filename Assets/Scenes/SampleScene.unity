@@ -1658,7 +1658,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 814978872}
-  - component: {fileID: 814978873}
   m_Layer: 0
   m_Name: '[BrickSpawnpoint]'
   m_TagString: Untagged
@@ -1675,26 +1674,12 @@ Transform:
   m_GameObject: {fileID: 814978871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.453, y: 0.1569, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &814978873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814978871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a64c07759b0354dad6087f1cc738c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultScreenSize: {x: 1080, y: 2340}
-  type: 4
 --- !u!1 &1024886973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1034913806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,7 +2742,15 @@ MonoBehaviour:
   state: 0
   brickSpawnPoint: {fileID: 814978871}
   brickset:
-  - {fileID: -3094672565837530150, guid: 9b7744d2a09ee744f8ad3498519c204b, type: 3}
+  - {fileID: -2304575813673775235, guid: 9b7744d2a09ee744f8ad3498519c204b, type: 3}
+  - {fileID: 2003961341186003048, guid: 18f3af37e6346ca478a917c3bfd0bb62, type: 3}
+  - {fileID: -3241676670387485014, guid: ef23d921262c8d94085947a4c1686abb, type: 3}
+  - {fileID: 4122135115183647958, guid: fd97d46214188e94a9624e1c0ce72b90, type: 3}
+  - {fileID: 224475270551637422, guid: cc365c55a05678347aa9387e161d3a4c, type: 3}
+  - {fileID: 7314422215996536564, guid: 6ea5c70e978c904409541d0ba5291747, type: 3}
+  - {fileID: 1360184490400231286, guid: 19a5f6afb9a3adc4f93b492a9ce4e1b8, type: 3}
+  - {fileID: 977631632970337537, guid: aa08cf7c1bea5254e85ad0c2178b30a2, type: 3}
+  - {fileID: 2948645087668555697, guid: 287d32fb51978fd4283256d4590cbf12, type: 3}
   defaultBall: {fileID: 698386580}
   platform: {fileID: 1289822052}
 --- !u!1 &1896355845

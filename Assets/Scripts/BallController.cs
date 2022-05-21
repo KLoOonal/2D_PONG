@@ -197,11 +197,18 @@ public class BallController : MonoBehaviour
     public void SetSpeedIncrease()
     {
         rb.velocity = rb.velocity.normalized * moveSpeed * 2f;
+        StartCoroutine(SetSpeedReset());
     }
 
     public void SetSpeedDecrease()
     {
         rb.velocity = (rb.velocity.normalized * 1f);
+        StartCoroutine(SetSpeedReset());
+    }
+
+    IEnumerator SetSpeedReset(){
+        yield return new WaitForSeconds(10.0f);
+        rb.velocity = rb.velocity.normalized * moveSpeed;
     }
 
 }

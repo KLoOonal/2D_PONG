@@ -164,7 +164,7 @@ public class PlatformController : MonoBehaviour
     // Ienumerator
 
     IEnumerator PlatformSizeReset(){
-         yield return new WaitForSeconds(2.0f);
+         yield return new WaitForSeconds(5.0f);
          this.transform.localScale =new Vector2(currentSize,transform.localScale.y);
     }
 
