@@ -15,8 +15,14 @@ public class BaseBrick : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private BrickType type;
 
-    public virtual void OnHitAction(){
+    void CheckForLargeball(){
+        
+    }
 
+    public virtual void OnHitAction(){}
+
+    public virtual void OnLargeHitAction(){
+        OnHitAction();
     }
 
     public BrickType GetBrickType(){

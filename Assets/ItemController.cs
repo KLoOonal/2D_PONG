@@ -59,7 +59,7 @@ public class ItemController : MonoBehaviour
 
     public void SetItemType(int randomType)
     {
-        randomType = 2;
+        //randomType = 2; for testing item only
         SetItemTypeFromIndex(randomType);
         itemTypeImage[randomType].SetActive(true);
         itemTypeIndex = randomType;

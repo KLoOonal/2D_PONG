@@ -24,14 +24,15 @@ public class BallController : MonoBehaviour
     [SerializeField] private float moveSpeed = 3.0f;
     private float maxSpeed = 5.0f;
     private float minSpeed = 2.0f;
-
     private PlatformController platform;
     private Rigidbody2D rb;
     private Vector3 currentVelocity;
+    private float defaultSize;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         platform = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformController>();
+        defaultSize = transform.localScale.x;
     }
 
     void FixedUpdate()
@@ -39,7 +40,6 @@ public class BallController : MonoBehaviour
         BallMoveControl();
         MovementControl();
     }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         BounceControl(col);
@@ -47,10 +47,22 @@ public class BallController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.transform.tag == "PassThrough")
+
+        if (sizeState == BallSizeState.large)
         {
-            BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
-            brick.OnHitAction();
+            if (col.transform.tag == "PassThrough" || col.transform.tag == "Brick")
+            {
+                BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
+                brick.OnLargeHitAction();
+            }
+        }
+        else
+        {
+            if (col.transform.tag == "PassThrough")
+            {
+                BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
+                brick.OnHitAction();
+            }
         }
     }
 
@@ -101,6 +113,7 @@ public class BallController : MonoBehaviour
         // track position
         this.gameObject.SetActive(true);
         rb.velocity = Vector2.zero;
+        SetSizeReset();
     }
 
     private void Despawn()
@@ -115,11 +128,14 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private void MovementControl(){
-        Debug.Log(rb.velocity.magnitude);
-        if(rb.velocity.magnitude <= maxSpeed && rb.velocity.magnitude > minSpeed){
+    private void MovementControl()
+    {
+        if (rb.velocity.magnitude <= maxSpeed && rb.velocity.magnitude > minSpeed)
+        {
             rb.velocity += rb.velocity.normalized * moveSpeed * Time.deltaTime;
-        }else if(rb.velocity.magnitude < minSpeed){
+        }
+        else if (rb.velocity.magnitude < minSpeed)
+        {
             rb.velocity = rb.velocity.normalized * minSpeed;
         }
     }
@@ -152,36 +168,40 @@ public class BallController : MonoBehaviour
 
     public void SetSizeIncrease()
     {
-        if(sizeState != BallSizeState.large){
-            this.transform.localScale = new Vector2(this.transform.localScale.x*2,this.transform.localScale.y*2);
-            if(sizeState == BallSizeState.small){
-                sizeState = BallSizeState.normal;
-            }else {
-                sizeState = BallSizeState.large; 
-            }
+        if (sizeState != BallSizeState.large)
+        {
+            this.transform.localScale = new Vector2(defaultSize * 2, defaultSize * 2);
+            sizeState = BallSizeState.large;
+            StartCoroutine(SetSizeReset());
         }
     }
 
-     public void SetSizeDecrease()
+    public void SetSizeDecrease()
     {
-        if(sizeState != BallSizeState.small){
-            this.transform.localScale = new Vector2(this.transform.localScale.x/2,this.transform.localScale.y/2);
-            if(sizeState == BallSizeState.large){
-                sizeState = BallSizeState.normal;
-            }else {
-                sizeState = BallSizeState.small; 
-            }
+        if (sizeState != BallSizeState.small)
+        {
+            this.transform.localScale = new Vector2(defaultSize / 2, defaultSize / 2);
+            sizeState = BallSizeState.small;
+            StartCoroutine(SetSizeReset());
         }
+    }
+
+    IEnumerator SetSizeReset()
+    {
+        yield return new WaitForSeconds(5.0f);
+        platform.BallReturnToNormalSize();
+        this.transform.localScale = new Vector2(defaultSize, defaultSize);
+        sizeState = BallSizeState.normal;
     }
 
     public void SetSpeedIncrease()
     {
-        rb.velocity = rb.velocity.normalized * moveSpeed*2f;
+        rb.velocity = rb.velocity.normalized * moveSpeed * 2f;
     }
 
     public void SetSpeedDecrease()
     {
-        rb.velocity = (rb.velocity.normalized *1f);
+        rb.velocity = (rb.velocity.normalized * 1f);
     }
 
 }

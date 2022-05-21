@@ -14,6 +14,7 @@ public class PlatformController : MonoBehaviour
     private float spawnDelay = 1;
     private float spawnTime;
     private bool isLetBallSpawn = false;
+    private bool itemSizeActivate = false;
 
     private int ballSpawnCount;
     void Awake(){
@@ -52,7 +53,8 @@ public class PlatformController : MonoBehaviour
     }
 
     public void PlatformReset(){
-        if(mainBall != null){
+        if(mainBall != null)
+        {
             mainBall.SetBallState(BallController.BallState.standby);
         }
         this.transform.localScale = new Vector2(defaultSize,transform.localScale.y);
@@ -82,11 +84,21 @@ public class PlatformController : MonoBehaviour
             foreach(GameObject ball in ballObj){
                 if(isIncrease){
                     ball.GetComponent<BallController>().SetSizeIncrease();
+                    gm.SetBallLargeEvent();
+                    itemSizeActivate = true;
                 }else{
-                    ball.GetComponent<BallController>().SetSizeDecrease();
+                    ball.GetComponent<BallController>().SetSizeDecrease();            
                 }   
             }
         }
+    }
+
+    public void BallReturnToNormalSize(){
+        if(!itemSizeActivate){
+            return;
+        }
+        gm.SetBallNormalEvent();
+        itemSizeActivate = false;
     }
 
     public void BallSpeedModify(bool isIncrease){
