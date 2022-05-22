@@ -11,7 +11,10 @@ Using
   Unity version 2021.3.2f1 LTS
   Universal render pipeline version 12.1.6
 
-Asset
+Unity Asset
   Unity built-in new input system
   Unity built-in Textmesh Pro
+
+Additional Asset
+  Castle platform pixel art by Buch https://opengameart.org/users/buch
 </pre>
