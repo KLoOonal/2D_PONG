@@ -2,8 +2,9 @@
 7 Days assignment create function android 2d pong
 
 ![](https://github.com/KLoOonal/2D_PONG/blob/develop/2Dsample.gif)
+<pre>
 
-Description /n
+Description 
   Create functional 2D Pong(breakthrough) game for android.
   
 Using
@@ -13,3 +14,4 @@ Using
 Asset
   Unity built-in new input system
   Unity built-in Textmesh Pro
+</pre>
