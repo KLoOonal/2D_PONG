@@ -3,7 +3,7 @@
 
 ![](https://github.com/KLoOonal/2D_PONG/blob/develop/2Dsample.gif)
 
-Description 
+Description /n
   Create functional 2D Pong(breakthrough) game for android.
   
 Using
