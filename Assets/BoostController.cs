@@ -8,7 +8,7 @@ public class BoostController : MonoBehaviour
     private PlatformController platform;
     private GamePlayController gm;
     void Awake(){
-        gm = GameObject.Find("GamePlayManager").GetComponent<GamePlayController>();
+        gm = GameObject.Find("GameplayManager").GetComponent<GamePlayController>();
         platform = GameObject.FindGameObjectWithTag("Platform").GetComponent<PlatformController>();
     }
     void Update(){
