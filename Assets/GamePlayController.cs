@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GamePlayController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GamePlayController : MonoBehaviour
 
     private BrickController currentBickSet;
 
-
+    public UnityEvent onLifeUpdate;
 
     private int playerLife = 3;
     [SerializeField] private BallController defaultBall;
@@ -50,6 +51,7 @@ public class GamePlayController : MonoBehaviour
     private void PlayerLoseLife()
     {
         playerLife -= 1;
+        onLifeUpdate.Invoke();
         if (playerLife <= 0)
         {
             SetGameOver();
@@ -63,6 +65,7 @@ public class GamePlayController : MonoBehaviour
     private void InitiateGame()
     {
         playerLife = 3;
+        onLifeUpdate.Invoke();
         SetStandby();
         int randomSet = Random.Range(0, brickset.Length);
         currentBickSet = Instantiate(brickset[randomSet], brickSpawnPoint.transform.position, Quaternion.identity, brickSpawnPoint.transform);
@@ -72,6 +75,7 @@ public class GamePlayController : MonoBehaviour
     private void RestartGame()
     {
         playerLife = 3;
+        onLifeUpdate.Invoke();
         SetStandby();
         currentBickSet.ResetBrick();
     }
@@ -147,6 +151,10 @@ public class GamePlayController : MonoBehaviour
         {
             currentBickSet.HandleLargeBall(true);
         }
+    }
+
+    public int GetPlayerLife(){
+        return playerLife;
     }
 
     public void SetBallNormalEvent()

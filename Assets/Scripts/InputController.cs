@@ -8,13 +8,16 @@ public class InputController : MonoBehaviour
 {
     public UnityEvent onDoubleTap;
     public UnityEvent onOneTap;
+    public UnityEvent onReleaseTap;
     public Vector2 GetTouchPosition() => touch_pos;
     public bool GetDoubleTabAction() => doubleTap;
     private Vector2 touch_pos;
     public bool doubleTap;
-    void Update()
+    void FixedUpdate()
     {
+        if(Touchscreen.current != null){
         touch_pos = Touchscreen.current.position.ReadValue();
+        }
     }
 
     public void OnTryOneTap(InputAction.CallbackContext context){
@@ -22,6 +25,9 @@ public class InputController : MonoBehaviour
         {
             case InputActionPhase.Performed:
                 onOneTap.Invoke();
+                break;
+             case InputActionPhase.Canceled:
+                onReleaseTap.Invoke();
                 break;
         }
     }

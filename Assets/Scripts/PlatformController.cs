@@ -11,6 +11,7 @@ public class PlatformController : MonoBehaviour
     [SerializeField]private BallController mainBall;
     [SerializeField]private GameObject ballPrefabs;
     [SerializeField]private GamePlayController gm;
+    [SerializeField]private BoostController boost;
     private float spawnDelay = 1;
     private float spawnTime;
     private bool isLetBallSpawn = false;

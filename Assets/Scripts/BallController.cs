@@ -62,8 +62,14 @@ public class BallController : MonoBehaviour
             {
                 BaseBrick brick = col.gameObject.GetComponent<BaseBrick>();
                 brick.OnHitAction();
+            }else if(col.transform.tag == "Boost"){
+                BallBoost();
             }
         }
+    }
+
+    private void BallBoost(){
+        rb.AddForce(Vector2.up * 150f);
     }
 
     private void BallMoveControl()
